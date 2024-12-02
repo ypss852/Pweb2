@@ -1,0 +1,7 @@
+<h1>Lista de Ventas</h1>
+<ul>
+    {% for selling in sellings %}
+        <li>{{ selling.product.name }} - {{ selling.quantity }} unidades</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'selling_create' %}">Agregar Venta</a>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Ventas</title>
+</head>
+<body>
+    <h1>Lista de Ventas</h1>
+    <ul>
+        
+            <li>{{ selling.product.name }} - {{ selling.quantity }} unidades</li>
+        
+    </ul>
+    <a href="{% url 'selling_create' %}">Registrar Nueva Venta</a>
+</body>
+</html>

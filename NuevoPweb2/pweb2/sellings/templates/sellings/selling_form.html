@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Nueva Venta</title>
+</head>
+<body>
+    <h1>Registrar Nueva Venta</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'selling_list' %}">Volver a la lista de ventas</a>
+</body>
+</html>

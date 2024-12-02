@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+    <ul>
+        
+            <li>{{ product.name }} - ${{ product.price }}</li>
+        
+    </ul>
+    <a href="{% url 'product_create' %}">Agregar Producto</a>
+</body>
+</html>
