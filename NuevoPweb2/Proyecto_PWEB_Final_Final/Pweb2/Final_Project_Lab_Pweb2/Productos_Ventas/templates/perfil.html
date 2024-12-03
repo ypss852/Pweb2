@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Bienvenido, {{ usuario.username }}</h2>
+        
+        <div class="profile-details">
+            <p><strong>Nombre de usuario:</strong> {{ usuario.username }}</p>
+            <p><strong>Correo electrónico:</strong> {{ usuario.email }}</p>
+            <p><strong>Fecha de registro:</strong> {{ usuario.date_joined|date:"d-m-Y" }}</p>
+            <p><strong>Último inicio de sesión:</strong> {{ usuario.last_login|date:"d-m-Y H:i" }}</p>
+        </div>
+
+        <h3>Compras Realizadas</h3>
+        <p>Has realizado {{ compras.count }} compras.</p>
+
+        <div class="products-grid">
+            {% for compra in compras %}
+                <div class="product-card">
+                    <img src="{{ compra.producto.img }}" alt="{{ compra.producto.nombre }}" class="product-image">
+                    <h3>{{ compra.producto.nombre }}</h3>
+                    <p>{{ compra.producto.descripcion }}</p>
+                    <p><strong>Cantidad comprada:</strong> {{ compra.cantidad }}</p>
+                </div>
+            {% empty %}
+                <p>Aún no has realizado compras.</p>
+            {% endfor %}
+        </div>
+
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    </div>
+</body>
+</html>
